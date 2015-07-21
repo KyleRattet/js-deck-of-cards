@@ -7,22 +7,24 @@ showCards.onclick = function(){
   var cardContainer = document.getElementById('container');
   cardContainer.innerHTML = "";
   displayCards();
-  //check if reset button exists
-  if (document.getElementById("clearCards") == null) {
-    createReset();
+  if (document.getElementById("reset") === null) {
+  createReset();
   }
 };
 
-function createReset(){
+function createReset () {
   var reset = document.createElement('button');
-  reset.innerHTML = 'Reset!';
-  reset.setAttribute("id", "clearCards");
-  reset.onclick = function() {
-    document.getElementById('container').innerHTML = "";
-    reset.parentNode.removeChild(reset);
+  reset.setAttribute("id","reset");
+  reset.innerHTML = "Reset";
+  reset.onclick = function () {
+    document.getElementById('container').innerHTML="";
+    document.body.removeChild(reset);
   }
-  document.body.appendChild(reset);
+  document.body.insertBefore(reset, document.body.children[1]);
 }
+
+
+
 
 //function that is run when deal is clicked, function
 function displayCards(){
